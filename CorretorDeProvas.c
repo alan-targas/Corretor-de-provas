@@ -116,7 +116,35 @@ void list_answer_key()
 
 void alter_answer_key()
 {
-    printf("\nIt worked!");
+    int option;
+    if(total_exams==0)
+    {
+        printf("\nNo answer keys added.");
+        return;
+    }
+    for(int i=0; i<=total_exams-1;i++)
+    {
+        printf("\n%d. %s",i+1,saved_exams[i].name);
+    }
+    do
+    {
+        printf("\nChoose an exam to alter answer key: ");
+        scanf("%d",&option);
+        if(option<1||option>total_exams)
+        {
+            printf("\nInvalid option.");
+        }
+
+    } while (option<1||option>total_exams);
+
+    printf("\nEnter the correct answers (a, b, c, d, etc.):\n");
+        for (int i = 0; i < saved_exams[option-1].num_questions; i++)
+        {
+            printf("\nQuestion %d: ", i + 1);
+            scanf(" %c", &saved_exams[option-1].answer_key[i]);
+        }
+
+    printf("\nAnswer key successfully altered!\n");
 }
 
 void erase_answer_key()
