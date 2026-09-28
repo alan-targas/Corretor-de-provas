@@ -3,6 +3,7 @@
 *.out
 *.o
 *.obj
+exams_data.bin
 
 # Configurações do VS Code
 .vscode/
